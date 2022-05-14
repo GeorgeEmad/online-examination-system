@@ -1,3 +1,21 @@
-.nav_routerlink{
+.navbar_container{
+	background-color: #C0C1FD;
+	display: flex;
+	margin: 0;
+	padding: 20px 50px 20px 0px;
+	filter: drop-shadow(0px 5px 5px #33333388);
+	justify-content: flex-end;
+}
+
+.navbar-link{
     text-decoration: none;
+	padding: 0px 30px;
+	font-family: "Open Sans";
+	font-size: 24px;
+	font-weight: 500;
+	color: #851DA7
+}
+
+.navbar-divider {
+	border-left: 1px solid #999999	;
 }
