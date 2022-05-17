@@ -1,1 +1,26 @@
-<p>exams-list works!</p>
+<div class="table-container">
+	<table class="table">
+		<thead>
+			<tr class="table-header">
+				<th>Exam Name</th>
+				<th>Subject</th>
+				<th>Difficulty Level</th>
+				<th>Total Questions</th>
+				<th>Exam Time</th>
+				<th>Action</th>
+			</tr>
+			<tr class="spacing-rows"></tr>
+		</thead>
+		<tbody *ngFor="let exam of exams">
+			<tr class="table-rows">
+				<td>{{exam.examName}}</td>
+				<td>{{exam.Subject}}</td>
+				<td>{{exam.difficultyLevel}}</td>
+				<td>{{exam.totalQuestions}}</td>
+				<td>{{exam.examTime}}</td>
+				<td class="action-cell">Take Exam</td>
+			</tr>
+			<tr class="spacing-rows"></tr>
+		</tbody>
+	</table>
+</div>
