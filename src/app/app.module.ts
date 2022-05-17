@@ -10,6 +10,8 @@ import { AppNavigationBarComponent } from './components/app-navigation-bar/app-n
 import { AboutComponent } from './components/about/about.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { HomeComponent } from './components/home/home.component';
+import { ExamsListComponent } from './components/exams-list/exams-list.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { RegisterComponent } from './components/register/register.component';
     AppNavigationBarComponent,
     AboutComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    HomeComponent,
+    ExamsListComponent
   ],
   imports: [
     BrowserModule,
