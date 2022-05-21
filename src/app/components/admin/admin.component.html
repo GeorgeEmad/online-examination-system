@@ -1,0 +1,23 @@
+<div class="table-container">
+	<div  *ngIf="isLoading" class="table-loading"> EXAMS LOADING...</div>
+	<table class="table">
+		<thead>
+			<tr class="table-header">
+				<th>User Name</th>
+				<th>Email</th>
+				<th>User Type</th>
+				<th>Action</th>
+			</tr>
+			<tr class="spacing-rows"></tr>
+		</thead>
+		<tbody *ngFor="let user of users">
+			<tr class="table-rows">
+				<td>{{user.name}}</td>
+				<td>{{user.email}}</td>
+				<td>{{user.role}}</td>
+				<td class="action-cell" (click)="delete(user)" >delete</td>
+			</tr>
+			<tr class="spacing-rows"></tr>
+		</tbody>
+	</table>
+</div>

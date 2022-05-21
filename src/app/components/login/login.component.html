@@ -11,6 +11,8 @@
 			<div class="validation-text"  *ngIf="!loginForm.controls['password'].valid "> Password is required</div>
 
 			<button type="submit" [disabled]="!loginForm.valid"  class="login-btn">Login</button>
+			<p class="login-footer">If You are Registered, Go to <a class="login-link" routerLink="/register">Registeration Page</a></p>
+
 		</form>
 	</div>
 

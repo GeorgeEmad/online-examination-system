@@ -9,17 +9,42 @@ import { Router } from '@angular/router';
 })
 export default class AuthServiceService {
   constructor(private http: HttpClient, private router: Router) { }
-  
-  private dbUrl = "https://hci-project-f3637-default-rtdb.firebaseio.com/exams.json";
-  private showAddTask: boolean = false;
+  role:any = ''
 
-  getExams(): Observable<Object> {
-    return this.http.get(this.dbUrl)
+  fetchUserRole(user:any) {
+    this.http.get("https://hci-project-f3637-default-rtdb.firebaseio.com/user.json").subscribe( (res:any) => {
+      let users:any = Object.keys(res).map((key) => { return res[key] });
+      for(let i = 0; i < users.length ; i++){
+        if(users[i].email == user.email){
+          console.log(users[i])
+          localStorage.setItem('role', users[i].role);
+        }
+      }
+    })
+  }
+
+  fetchUsers(): Observable<Object> {
+    return this.http.get("https://hci-project-f3637-default-rtdb.firebaseio.com/user.json",)
   }
 
 
-  setUserRole(user:User) {
-    this.http.post("https://hci-project-f3637-default-rtdb.firebaseio.com/user.json", user).subscribe( res => {
+
+  deleteUser(user:User){
+    // this.http.post("https://identitytoolkit.googleapis.com/v1/accounts:delete?key=AIzaSyDYKyzaGQN02z7idmosPvwAZwOHUVANx4U", {
+    //   idToken: user.id,
+    // }).subscribe( (res:any) => {
+    //     console.log(res)
+    //   }
+    // )
+
+    this.http.delete(`https://hci-project-f3637-default-rtdb.firebaseio.com/user/${user.key}.json`).subscribe( (res:any) => {
+      console.log(res)
+    })
+  }
+
+  setUserRole(user:any) {
+    localStorage.setItem('role', user.role);
+    this.http.post("https://hci-project-f3637-default-rtdb.firebaseio.com/user.json", user).subscribe( (res:any) => {
       console.log(res)
     })
   }
@@ -48,14 +73,25 @@ export default class AuthServiceService {
       let id = res.idToken
       localStorage.setItem('idToken', id)
       user.id = id
+      this.fetchUserRole(user)
+      console.log("hii")
+      
       this.router.navigate(['/']);
-    }
-    // ,
-    // (error:any) => {
-    //     console.log(error)
-    //   }
-      )
+      }
+    )
   }
+
+  isLoggedIn():boolean{
+    return  localStorage.getItem('idToken') !== null
+  }
+
+  getRole() {
+    this.role = localStorage.getItem('role');
+    return this.role;
+  }
+  
+
+
 }
 
 

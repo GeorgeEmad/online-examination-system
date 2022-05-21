@@ -38,6 +38,7 @@ export class RegisterComponent implements OnInit {
     this.authService.register(this.user)
   }
   ngOnInit(): void {
+    // this.authService.fetchUserRole()
   }
 
 }

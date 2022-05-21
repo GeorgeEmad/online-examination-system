@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -12,6 +11,10 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { HomeComponent } from './components/home/home.component';
 import { ExamsListComponent } from './components/exams-list/exams-list.component';
+import AuthService from './services/auth-service.service';
+import { ExamComponent } from './exam/exam.component';
+import { AdminComponent } from './components/admin/admin.component';
+import { UnauthorizedComponent } from './components/unauthorized/unauthorized.component'
 
 @NgModule({
   declarations: [
@@ -21,7 +24,10 @@ import { ExamsListComponent } from './components/exams-list/exams-list.component
     AboutComponent,
     LoginComponent,
     HomeComponent,
-    ExamsListComponent
+    ExamsListComponent,
+    ExamComponent,
+    AdminComponent,
+    UnauthorizedComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +37,7 @@ import { ExamsListComponent } from './components/exams-list/exams-list.component
     ReactiveFormsModule,
     CommonModule
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

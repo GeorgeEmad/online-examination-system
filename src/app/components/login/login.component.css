@@ -122,3 +122,15 @@ button[disabled]{
 	font-size: 10px;
 	color: red;
 }
+
+
+.login-footer{
+	margin: 20px 0px 20px 0px;
+	font-weight: 200;
+	font-size: 12px;
+}
+
+.login-link:link{
+	color: #851DA7;
+	font-weight: 600;
+}

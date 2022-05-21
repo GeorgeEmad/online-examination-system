@@ -1,7 +1,7 @@
 <div class="navbar_container">
     <a class="navbar-link" [routerLink]="['/']"> Home </a>
 	<span class="navbar-divider"></span>
-    <a class="navbar-link" [routerLink]="['/login']"> Login </a>
+    <a class="navbar-link" (click)="routeLogin()" [routerLink]="['/login']"> {{isLoggedIn()? 'Logout' : 'Login'}} </a>
 	<span class="navbar-divider"></span>
     <a class="navbar-link" [routerLink]="['/about']"> About Us </a>
 </div>

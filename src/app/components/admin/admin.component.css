@@ -38,10 +38,12 @@ th{
     color:rgba(132, 0, 255, 0.8);
     font-weight: 600;
 }
+
 .action-cell:hover{
     color:rgba(132, 0, 255, 0.947);
     font-weight: 900;
 }
+
 
 .table-loading{
     font-size: 34px;
