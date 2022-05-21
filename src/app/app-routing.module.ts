@@ -7,7 +7,7 @@ import { HomeComponent } from './components/home/home.component';
 import { ExamsListComponent } from './components/exams-list/exams-list.component';
 
 const routes: Routes = [
-  { path: '', component: LoginComponent },
+  { path: '', component: HomeComponent },
   { path: 'about', component: AboutComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },

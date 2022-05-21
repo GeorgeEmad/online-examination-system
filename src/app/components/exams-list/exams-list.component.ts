@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { ExamsServiceService } from '../../services/exams-service.service';
+import { Exam } from '../../Exam';
 @Component({
   selector: 'app-exams-list',
   templateUrl: './exams-list.component.html',
@@ -7,55 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ExamsListComponent implements OnInit {
 
-  constructor() { }
-
-  exams:any[]= [
-    { 
-      examName:"Angular Quiz 1",
-      Subject: "Human Computer Interaction",
-      difficultyLevel: "Easy - MCQ",
-      totalQuestions: 5,
-      examTime: 15
-    },
-    { 
-      examName:"Angular Quiz 2",
-      Subject: "Human Computer Interaction",
-      difficultyLevel: "Hard - Short Answer",
-      totalQuestions: 5,
-      examTime: 10
-    },
-    { 
-      examName:"Creational Patterns",
-      Subject: "Software Design Patterns",
-      difficultyLevel: "Intermediate - TF",
-      totalQuestions: 10,
-      examTime: 20
-    },
-    { 
-      examName:"Angular Quiz 1",
-      Subject: "Human Computer Interaction",
-      difficultyLevel: "Easy - MCQ",
-      totalQuestions: 5,
-      examTime: 15
-    },
-    { 
-      examName:"Angular Quiz 2",
-      Subject: "Human Computer Interaction",
-      difficultyLevel: "Hard - Short Answer",
-      totalQuestions: 5,
-      examTime: 10
-    },
-    { 
-      examName:"Creational Patterns",
-      Subject: "Software Design Patterns",
-      difficultyLevel: "Intermediate - TF",
-      totalQuestions: 10,
-      examTime: 20
-    }
-  ]
+  constructor(private examsService: ExamsServiceService) { }
+  exams:Exam[]= []
+  isLoading:boolean = false
 
   ngOnInit(): void {
-
+    this.isLoading = true
+    this.examsService.getExams().subscribe((examsObj:any) => {
+      this.isLoading = false
+      let keysArray:any = Object.keys(examsObj)
+      this.exams = examsObj[keysArray[0]] 
+      console.log(this.exams);
+    });
   }
 
 }

@@ -3,10 +3,14 @@
 
 	<div>
 		<p class="login-header">Login</p>
-		<form class="login-form">
-			<input type="text" class="login-input" placeholder="E-mail">
-			<input type="text" class="login-input" placeholder="Password">
-			<button type="submit" class="login-btn">Login</button>
+		<form class="login-form" [formGroup]="loginForm" (ngSubmit)="userLogin()">
+			<input type="text" formControlName="email"  class="login-input" placeholder="E-mail">
+			<div class="validation-text" *ngIf="!loginForm.controls['email'].valid "> valid email is required</div>
+
+			<input type="password" name="password"formControlName="password" class="login-input" placeholder="Password">
+			<div class="validation-text"  *ngIf="!loginForm.controls['password'].valid "> Password is required</div>
+
+			<button type="submit" [disabled]="!loginForm.valid"  class="login-btn">Login</button>
 		</form>
 	</div>
 
