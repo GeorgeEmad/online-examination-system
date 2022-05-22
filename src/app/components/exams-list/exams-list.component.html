@@ -19,7 +19,7 @@
 				<td>{{exam.difficultyLevel}} - {{exam.type}}</td>
 				<td>{{exam.totalQuestions}}</td>
 				<td>{{exam.examTime}}</td>
-				<td class="action-cell">Take Exam</td>
+				<td class="action-cell" (click)="takeExam(exam)" >Take Exam</td>
 			</tr>
 			<tr class="spacing-rows"></tr>
 		</tbody>

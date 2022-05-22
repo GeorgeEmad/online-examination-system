@@ -1,1 +1,76 @@
-<p>exam works!</p>
+<div class="container">
+        
+    <div class="exam-container">
+      <div class="flex">
+
+        <div class="form-container">
+  
+               <div class="question-container">
+                <h1 class="title">Question: {{currentQuestion}}</h1>
+                <p class="question-text">{{questions[currentQuestion].question}}</p>
+                  <!-- CHANGE THIS (MCQ) -->
+                        <div  *ngIf="currentExam.type == 'MCQ'" class="form-element-container radio">  
+                          <label class="radio-container">
+                            <input type="radio" checked="checked" name="radio">
+                            <span class="checkmark"></span>
+                          </label>
+                          <label class="radio-container">
+                            <input type="radio" (click)="answer = questions[currentQuestion].choice1" name="radio">{{questions[currentQuestion].choice1}}
+                            <span class="checkmark"></span>
+                          </label>
+                          <label class="radio-container">
+                            <input type="radio" (click)="answer = questions[currentQuestion].choice2" name="radio">{{questions[currentQuestion].choice2}}
+                            <span class="checkmark"></span>
+                          </label>
+                          <label class="radio-container">
+                            <input type="radio" (click)="answer = questions[currentQuestion].choice3" name="radio">{{questions[currentQuestion].choice3}}
+                            <span class="checkmark"></span>
+                          </label>
+                          <label class="radio-container">
+                            <input type="radio" (click)="answer = questions[currentQuestion].choice4" name="radio">{{questions[currentQuestion].choice4}}
+                            <span class="checkmark"></span>
+                          </label>
+                      </div>
+                <!-- TILL HERE--> 
+
+                <!-- CHANGE THIS (T/F) -->
+                        <div *ngIf="currentExam.type == 'TF'" class="form-element-container radio">  
+                            <label class="radio-container">
+                                <input type="radio" checked="checked" name="radio" (click)="answer = 'true'">True
+                                <span class="checkmark"></span>
+                              </label>
+                              <label class="radio-container">
+                                <input type="radio" name="radio" (click)="answer = 'false'">False
+                                <span class="checkmark"></span>
+                              </label>
+                      </div>
+               <!-- TILL HERE--> 
+
+                <!--CHANGE THIS (ShortAnwers)-->
+                          <div *ngIf="currentExam.type == 'Short Answer'" class="form-element-container radio">  
+                            <div class="form-element-container">
+                              <textarea class="form-input textarea" [(ngModel)]="answer" placeholder="Write Your Answer Here" rows="6"></textarea>
+                             </div>
+                          </div>
+                <!-- TILL HERE-->
+               </div>
+
+        </div>
+
+        <div class="nav-container">
+
+              <div class="numbers-nav-container">
+                  <p (click)="currentQuestion = i" *ngFor="let item of [].constructor(questions.length); let i = index" class="numbers-container">
+                    <span class="number">{{i}}</span>
+                  </p>
+              </div>
+
+              <button class='btn submit-btn' type="button" (click)="submitQuestion()">Submit Question</button>
+              <button class='btn submit-btn' type="button" (click)="submitExam()">Submit Exam</button>
+
+      </div>
+
+    </div>
+  </div>
+    
+</div>

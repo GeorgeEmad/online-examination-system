@@ -9,6 +9,8 @@ import { AdminComponent } from './components/admin/admin.component';
 import { UnauthorizedComponent } from './components/unauthorized/unauthorized.component';
 import { CreateExamInfoComponent } from './components/create-exam-info/create-exam-info.component';
 import { CreateQuestionsComponent } from './components/create-questions/create-questions.component';
+import { ExamComponent } from './components/exam/exam.component'; 
+
 
 import { AuthGuard } from './guards/auth.guard';
 
@@ -43,6 +45,12 @@ const routes: Routes = [
     }
   },
   { path: 'examslist', component: ExamsListComponent,
+    canActivate: [AuthGuard],
+    data: {
+      role: 'user examiner admin'
+    }
+  },
+  { path: 'exam', component: ExamComponent,
     canActivate: [AuthGuard],
     data: {
       role: 'user examiner admin'

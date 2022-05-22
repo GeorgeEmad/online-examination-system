@@ -31,6 +31,10 @@ export class ExamsServiceService {
     return this.http.post("https://hci-project-f3637-default-rtdb.firebaseio.com/question/.json", question)
   }
 
+  fetchQuestions(): Observable<Object>{
+    return this.http.get("https://hci-project-f3637-default-rtdb.firebaseio.com/question/.json")
+  }
+
 }
 
 

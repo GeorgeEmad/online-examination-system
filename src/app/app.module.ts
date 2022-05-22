@@ -16,7 +16,8 @@ import { AdminComponent } from './components/admin/admin.component';
 import { UnauthorizedComponent } from './components/unauthorized/unauthorized.component';
 import { CreateExamInfoComponent } from './components/create-exam-info/create-exam-info.component';
 import { CreateQuestionsComponent } from './components/create-questions/create-questions.component';
-import { ExamComponent } from './components/exam/exam.component'
+import { ExamComponent } from './components/exam/exam.component';
+import { ScoreComponent } from './components/score/score.component'
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { ExamComponent } from './components/exam/exam.component'
     UnauthorizedComponent,
     CreateExamInfoComponent,
     CreateQuestionsComponent,
-    ExamComponent
+    ExamComponent,
+    ScoreComponent
   ],
   imports: [
     BrowserModule,
