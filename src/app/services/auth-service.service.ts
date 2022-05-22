@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { User } from '../User';
 import { Router } from '@angular/router';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -18,6 +19,7 @@ export default class AuthServiceService {
         if(users[i].email == user.email){
           console.log(users[i])
           localStorage.setItem('role', users[i].role);
+          this.router.navigate(['/']);
         }
       }
     })
@@ -73,10 +75,7 @@ export default class AuthServiceService {
       let id = res.idToken
       localStorage.setItem('idToken', id)
       user.id = id
-      this.fetchUserRole(user)
-      console.log("hii")
-      
-      this.router.navigate(['/']);
+      this.fetchUserRole(user)      
       }
     )
   }

@@ -25,12 +25,12 @@ export class AuthGuard implements CanActivate {
       if (route.data['role'] && route.data['role'].includes(userRole) === false) { 
 
         this.router.navigate(['/login']);
-        console.log("FIALED 1 wrong role")
+        console.log("FAILED 1 wrong role")
         return false;
       }
       return true;
     }
-    console.log("FIALED2 Not logged in")
+    console.log("FAILED2 Not logged in")
     this.router.navigate(['/login']);
     return false;
   }

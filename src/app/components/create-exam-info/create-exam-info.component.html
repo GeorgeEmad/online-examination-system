@@ -1,0 +1,75 @@
+<div class="container">
+
+    <div class="create-exam-container">
+        <div class="title">
+            <h2>create an exam</h2>
+        </div>
+        <div class="form-container">
+            <form [formGroup]="createExamForm" (ngSubmit)="examInfoSubmit()">
+                <div class="form-element-container">
+                    <input class="form-input"formControlName="Subject"  type="text" placeholder="Subject Name" />
+                </div>
+                <div class="form-element-container">
+                    <input class="form-input" type="text" formControlName="examName"  placeholder="Exam Name" />
+                </div>
+                <div class="form-element-container">
+                    <input class="form-input" type="number" formControlName="examTime"  placeholder="Time" />
+                </div>
+                <div class="form-element-container">
+                    <input class="form-input" type="number" formControlName="totalQuestions"  placeholder="Total Questions" />
+                </div>
+                <div class="form-element-container radio">
+                    <label class="radio-container">
+                        <input (click)="exam.difficultyLevel = 'Easy'" type="radio" checked="checked" name="difficultyLevel" value="Easy">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="radio-container">
+                        <input (click)="exam.difficultyLevel = 'Intermediate'" type="radio" name="difficultyLevel" value="Intermediate">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="radio-container">
+                        <input (click)="exam.difficultyLevel = 'Hard'" type="radio" name="difficultyLevel" value="Hard">
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+                <div class="form-element-container radio">
+                    <label class="radio-label radio-label-1">
+                        Easy
+                    </label>
+                    <label class="radio-label radio-label-2">
+                        Intermediate
+                    </label>
+                    <label class="radio-label radio-label-3">
+                        Hard
+                    </label>
+                </div>
+                <div class="form-element-container radio">
+                    <label class="radio-container">
+                        <input (click)="exam.type = 'TF'" type="radio" checked="checked" name="type" value="TF">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="radio-container">
+                        <input (click)="exam.type = 'MCQ'" type="radio" name="type" value="MCQ">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label class="radio-container">
+                        <input (click)="exam.type = 'Short Answer'" type="radio" name="type" value="MCQ">
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+                <div class="form-element-container radio">
+                    <label class="radio-label radio-label-4">
+                        TF
+                    </label>
+                    <label class="radio-label radio-label-5">
+                        MCQ
+                    </label>
+                    <label class="radio-label radio-label-6">
+                        Short Answer
+                    </label>
+                </div>
+
+                <button class='btn' type="submit">create</button>
+            </form>
+        </div>
+    </div>

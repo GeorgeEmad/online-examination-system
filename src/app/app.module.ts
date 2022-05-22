@@ -12,9 +12,9 @@ import { RegisterComponent } from './components/register/register.component';
 import { HomeComponent } from './components/home/home.component';
 import { ExamsListComponent } from './components/exams-list/exams-list.component';
 import AuthService from './services/auth-service.service';
-import { ExamComponent } from './exam/exam.component';
 import { AdminComponent } from './components/admin/admin.component';
-import { UnauthorizedComponent } from './components/unauthorized/unauthorized.component'
+import { UnauthorizedComponent } from './components/unauthorized/unauthorized.component';
+import { CreateExamInfoComponent } from './components/create-exam-info/create-exam-info.component'
 
 @NgModule({
   declarations: [
@@ -25,9 +25,9 @@ import { UnauthorizedComponent } from './components/unauthorized/unauthorized.co
     LoginComponent,
     HomeComponent,
     ExamsListComponent,
-    ExamComponent,
     AdminComponent,
-    UnauthorizedComponent
+    UnauthorizedComponent,
+    CreateExamInfoComponent
   ],
   imports: [
     BrowserModule,

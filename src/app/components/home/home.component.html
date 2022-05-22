@@ -1,11 +1,24 @@
+<div class="home-options">
 
-    <div class="home-options">
-        <div class="option">
-            <img src="/assets/take-exam.png" class="option-logo"/>
+    <div *ngIf="getRole() == 'user'" class="option">
+        <a class="option-link" routerLink="/login">
+            <img src="/assets/take-exam.png" class="option-logo" />
             <div class="option-text">Take An Exam</div>
-        </div>
-        <div class="option">
-            <img src="/assets/check-result.png" class="option-logo"/>
-            <div class="option-text">Check Results</div>
-        </div>
+        </a>
     </div>
+
+    <div *ngIf="getRole() == 'examiner'" class="option">
+        <a class="option-link" routerLink="/createexaminfo">
+            <img src="/assets/check-result.png" class="option-logo" />
+            <div class="option-text">Create Exam</div>
+        </a>
+    </div>
+
+    <div *ngIf="getRole() == 'admin'" class="option">
+        <a class="option-link" routerLink="/login">
+            <img src="/assets/check-result.png" class="option-logo" />
+            <div class="option-text">Admin Page</div>
+        </a>
+    </div>
+
+</div>

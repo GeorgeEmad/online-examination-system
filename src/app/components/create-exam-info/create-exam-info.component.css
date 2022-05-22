@@ -1,0 +1,150 @@
+body {
+    margin: 0;
+}
+
+.container {
+    height: 715px;
+    background-color: rgba(215, 215, 215, 1);
+    border-radius: 0px;
+    padding-top: 5px;
+}
+
+.create-exam-container {
+    margin: auto;
+    text-align: center;
+    width: 1050px;
+    height: 655px;
+    background-color: rgba(255, 255, 255, 1);
+    border-radius: 50px;
+    -moz-box-shadow: -10px 10px 100px rgba(128, 128, 255, 0.34901960784313724);
+    -webkit-box-shadow: -10px 10px 100px rgb(128 128 255 / 35%);
+    box-shadow: -10px 10px 100px rgb(128 128 255 / 35%);
+}
+
+.title h2 {
+    font-family: 'Courier New Bold', 'Courier New', sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 20px;
+    color: #6300BF;
+    text-align: center;
+    padding-top: 35px;
+}
+
+.form-element-container {
+    margin-bottom: 20px;
+}
+
+.form-input {
+    width: 220px;
+    height: 34px;
+    background-color: rgba(242, 242, 242, 0.662745);
+    border-color: rgba(128, 128, 255, 0.2);
+
+}
+
+.form-input::placeholder {
+    color: rgb(153, 153, 153);
+    opacity: 1;
+}
+
+.btn {
+    background-color: rgba(194, 194, 255, 1);
+    border: none;
+    border-radius: 10px;
+    width: 95px;
+    height: 35px;
+    font-size: 15px;
+    margin-top: 25px;
+}
+
+.radio-container {
+    position: relative;
+    padding-left: 35px;
+    margin: 12px 30px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+.radio-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 45px;
+    width: 45px;
+    background-color: white;
+    border-radius: 50%;
+    border: 1px solid rgb(194, 194, 255);
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.radio-container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.radio-container .checkmark:after {
+    top: 10px;
+    left: 10px;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: rgb(194, 194, 255);
+}
+
+.radio {
+    margin-bottom: 30px;
+    margin-top: 25px;
+}
+
+.radio-label {
+    color: #C2C2FF;
+    font-size: 20px;
+}
+
+.radio-label-1 {
+    position: relative;
+    left: -2.9%;
+}
+
+.radio-label-2 {
+    position: relative;
+    left: 1%;
+}
+
+.radio-label-3 {
+    position: relative;
+    left: 4%;
+}
+
+.radio-label-4 {
+    position: relative;
+    left: -0.3%;
+}
+
+.radio-label-5 {
+    position: relative;
+    left: 4.5%;
+}
+
+.radio-label-6 {
+    position: relative;
+    left: 6.5%;
+}

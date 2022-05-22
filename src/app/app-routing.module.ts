@@ -7,6 +7,7 @@ import { HomeComponent } from './components/home/home.component';
 import { ExamsListComponent } from './components/exams-list/exams-list.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { UnauthorizedComponent } from './components/unauthorized/unauthorized.component';
+import { CreateExamInfoComponent } from './components/create-exam-info/create-exam-info.component';
 
 import { AuthGuard } from './guards/auth.guard';
 
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'unauthorized', component: UnauthorizedComponent },
+  { path: 'createexaminfo', component: CreateExamInfoComponent },
   { path: 'home', component: HomeComponent,
     canActivate: [AuthGuard],
     data: {
