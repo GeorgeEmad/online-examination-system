@@ -8,19 +8,25 @@
             <form [formGroup]="createExamForm" (ngSubmit)="examInfoSubmit()">
                 <div class="form-element-container">
                     <input class="form-input"formControlName="Subject"  type="text" placeholder="Subject Name" />
+                    <div class="validation-text"  *ngIf="!createExamForm.controls['Subject'].valid "> Subject is required</div>
                 </div>
                 <div class="form-element-container">
                     <input class="form-input" type="text" formControlName="examName"  placeholder="Exam Name" />
+                    <div class="validation-text"  *ngIf="!createExamForm.controls['examName'].valid "> Exam Name is required</div>
+
                 </div>
                 <div class="form-element-container">
                     <input class="form-input" type="number" formControlName="examTime"  placeholder="Time" />
+                    <div class="validation-text"  *ngIf="!createExamForm.controls['examTime'].valid "> Time is required</div>
+
                 </div>
                 <div class="form-element-container">
                     <input class="form-input" type="number" formControlName="totalQuestions"  placeholder="Total Questions" />
+                    <div class="validation-text"  *ngIf="!createExamForm.controls['totalQuestions'].valid "> Total Questions is required</div>
                 </div>
                 <div class="form-element-container radio">
                     <label class="radio-container">
-                        <input (click)="exam.difficultyLevel = 'Easy'" type="radio" checked="checked" name="difficultyLevel" value="Easy">
+                        <input (click)="exam.difficultyLevel = 'Easy'" type="radio"  name="difficultyLevel" value="Easy">
                         <span class="checkmark"></span>
                     </label>
                     <label class="radio-container">
@@ -45,7 +51,7 @@
                 </div>
                 <div class="form-element-container radio">
                     <label class="radio-container">
-                        <input (click)="exam.type = 'TF'" type="radio" checked="checked" name="type" value="TF">
+                        <input (click)="exam.type = 'TF'" type="radio"  name="type" value="TF">
                         <span class="checkmark"></span>
                     </label>
                     <label class="radio-container">
@@ -69,7 +75,7 @@
                     </label>
                 </div>
 
-                <button class='btn' type="submit">create</button>
+                <button class='btn' [disabled]="!createExamForm.valid" type="submit">create</button>
             </form>
         </div>
     </div>

@@ -17,7 +17,9 @@ export class ExamsListComponent implements OnInit {
     this.examsService.getExams().subscribe((examsObj:any) => {
       this.isLoading = false
       let keysArray:any = Object.keys(examsObj)
-      this.exams = examsObj[keysArray[0]] 
+      for(var i = 0; i< keysArray.length ;i++){
+        this.exams.push(examsObj[keysArray[i]])
+      }
       console.log(this.exams);
     });
   }

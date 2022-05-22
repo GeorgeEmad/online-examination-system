@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ExamsServiceService } from '../../services/exams-service.service';
 import { Exam } from '../../Exam';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-exam-info',
@@ -27,7 +28,7 @@ export class CreateExamInfoComponent implements OnInit {
     examTime: 0
   }
 
-  constructor(private examsService: ExamsServiceService) { }
+  constructor(private examsService: ExamsServiceService,  private router: Router) { }
 
   examInfoSubmit(){
     this.exam.examName = this.createExamForm.controls['examName'].value
@@ -35,9 +36,13 @@ export class CreateExamInfoComponent implements OnInit {
     this.exam.examName = this.createExamForm.controls['examName'].value
     this.exam.totalQuestions = this.createExamForm.controls['totalQuestions'].value
     this.exam.examTime = this.createExamForm.controls['examTime'].value
-    console.log(this.exam)
-    // this.authService.register(this.user)
-
+    this.exam.timestamp = Date.now()
+    // console.log(this.exam)
+    this.examsService.createExam(this.exam).subscribe((res) =>{
+      console.log(res)
+      this.examsService.updateCurrentExam(this.exam)
+      this.router.navigate(['/createquestions']);
+    })
   }
 
   ngOnInit(): void {

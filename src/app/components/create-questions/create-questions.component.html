@@ -1,0 +1,63 @@
+<div class="container">
+        
+    <div class="exam-container">
+      <div class="flex">
+
+        <div class="form-container">
+  
+               <div class="question-container">
+                <h1 class="title">Question: {{currentQuestion}}</h1>
+                <textarea class="form-input textarea" [(ngModel)]="question.question" placeholder="Write Your question Here" rows="3"></textarea>
+
+                  <!-- CHANGE THIS (MCQ) -->
+                        <div  *ngIf="currentExam.type == 'MCQ'" class="form-element-container radio">  
+                          <textarea class="form-input textarea" [(ngModel)]="question.choice1" placeholder="Write Choice" rows="1"></textarea>
+                          <textarea class="form-input textarea" [(ngModel)]="question.choice2" placeholder="Write Choice" rows="1"></textarea>
+                          <textarea class="form-input textarea" [(ngModel)]="question.choice3" placeholder="Write Choice" rows="1"></textarea>
+                          <textarea class="form-input textarea" [(ngModel)]="question.choice4" placeholder="Write Choice" rows="1"></textarea>
+                          <textarea class="form-input textarea" [(ngModel)]="question.answer" placeholder="Write Answer" rows="1"></textarea>
+
+                      </div>
+                <!-- TILL HERE--> 
+
+                <!-- CHANGE THIS (T/F) -->
+                        <div *ngIf="currentExam.type == 'TF'" class="form-element-container radio">  
+                          <label class="radio-container">
+                              <input type="radio" checked="checked" name="radio"  (click)="question.answer = 'true'">True
+                              <span class="checkmark"></span>
+                            </label>
+                            <label class="radio-container">
+                              <input type="radio" name="radio" (click)="question.answer = 'false'">False
+                              <span class="checkmark"></span>
+                            </label>
+                      </div>
+               <!-- TILL HERE--> 
+
+                <!--CHANGE THIS (ShortAnwers)-->
+                          <div *ngIf="currentExam.type == 'Short Answer'" class="form-element-container radio">  
+                            <div class="form-element-container">
+                              <textarea class="form-input textarea" [(ngModel)]="question.answer" placeholder="Write Your Answer Here" rows="6"></textarea>
+                             </div>
+                          </div>
+                <!-- TILL HERE-->
+               </div>
+
+        </div>
+
+        <div class="nav-container">
+
+              <div class="numbers-nav-container">
+                  <p (click)="currentQuestion = i" *ngFor="let item of [].constructor(currentExam.totalQuestions); let i = index" class="numbers-container">
+                    <span class="number">{{i}}</span>
+                  </p>
+              </div>
+
+              <button class='btn submit-btn' type="button" (click)="submitQuestion()">Submit Question</button>
+              <button class='btn submit-btn' type="button" (click)="submitExam()">Submit Exam</button>
+
+      </div>
+
+    </div>
+  </div>
+    
+</div>

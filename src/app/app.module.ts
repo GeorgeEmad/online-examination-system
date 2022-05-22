@@ -14,7 +14,9 @@ import { ExamsListComponent } from './components/exams-list/exams-list.component
 import AuthService from './services/auth-service.service';
 import { AdminComponent } from './components/admin/admin.component';
 import { UnauthorizedComponent } from './components/unauthorized/unauthorized.component';
-import { CreateExamInfoComponent } from './components/create-exam-info/create-exam-info.component'
+import { CreateExamInfoComponent } from './components/create-exam-info/create-exam-info.component';
+import { CreateQuestionsComponent } from './components/create-questions/create-questions.component';
+import { ExamComponent } from './components/exam/exam.component'
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { CreateExamInfoComponent } from './components/create-exam-info/create-ex
     ExamsListComponent,
     AdminComponent,
     UnauthorizedComponent,
-    CreateExamInfoComponent
+    CreateExamInfoComponent,
+    CreateQuestionsComponent,
+    ExamComponent
   ],
   imports: [
     BrowserModule,

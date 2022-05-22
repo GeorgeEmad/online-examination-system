@@ -148,3 +148,15 @@ body {
     position: relative;
     left: 6.5%;
 }
+
+.validation-text{
+	font-size: 10px;
+	color: red;
+}
+
+.btn:disabled,
+button[disabled]{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}
